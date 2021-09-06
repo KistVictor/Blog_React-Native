@@ -7,30 +7,30 @@ export const styles = StyleSheet.create({
     maxWidth: '420px',
     minWidth: '220px',
     backgroundColor: theme.colors.secundary,
-    padding: '15px',
-    borderRadius: '15px',
-    gap: '3px'
+    padding: 15,
+    borderRadius: 15,
+    marginBottom: "20px"
   },
 
   title: {
     color: theme.colors.heading,
-    fontSize: '20px',
+    fontSize: 20,
     fontWeight: 'bold',
   },
 
   body: {
     color: theme.colors.body,
-    fontSize: '16px',
+    fontSize: 16,
   },
 
   specify: {
     flexDirection: 'row',
-    gap: '10px'
   },
 
   specifyText: {
     color: theme.colors.body,
-    fontSize: '12px',
+    fontSize: 12,
+    marginRight: '10px'
   }
 
 })
