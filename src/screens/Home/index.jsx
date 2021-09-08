@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 
 import Background from '../../components/Background';
-import CardPost from '../../components/CardPost.jsx';
-
-import {api} from '../../services/api'
+import CardPost from '../../components/CardPost';
+import getData from '../../services/getData'
 
 export default function Home() {
   const [data, setData] = useState([])
 
-  useEffect(() => {
-    async function getData() {
-      const response = await api.get('https://jsonplaceholder.typicode.com/posts')
-      setData(response.data)
+  /*function removePostCard(id) {
+    const posts = data
+    const post = posts.filter(post => post.id === id)
+    console.log(post)
+    if (post[0].id === id) {
+      console.log(post)
+      posts.splice(post, 1)
+      console.log(posts)
     }
-    getData()
-  }, [])
+  }*/
 
-  console.log(data)
-  
+  function generateCardPost() {
+    getData()
+      .then(apiData => apiData.map(element => <CardPost key={element.id} title={element.title} body={element.body} id={element.id} userId={element.userId} />))
+      .then(apiData => console.log(apiData))
+    //getData().then(apiData => setData(apiData))
+  }
+
   return (
     <Background>
       <StatusBar style="auto" />
-      {data.map((element) => <CardPost key={element.id} title={element.title} body={element.body} id={element.id} userId={element.userId} />)}
-      
+      {generateCardPost()}
     </Background>
   );
 }
