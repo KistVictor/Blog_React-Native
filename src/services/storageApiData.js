@@ -1,7 +1,7 @@
 import {api} from './api'
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import storageData from './storageData';
 
-export default async function storageData() {
+export default async function storageApiData() {
 
   const getDataFromApi = async () => {
     try {
@@ -11,15 +11,7 @@ export default async function storageData() {
       console.log(err)
     }
   }
-  const ApiData = await getDataFromApi()
+  const apiData = await getDataFromApi()
 
-  const storeData = async (data) => {
-    try {
-      const jsonData = JSON.stringify(data)
-      await AsyncStorage.setItem('@storage_Key', jsonData)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  storeData(ApiData.data)
+  storageData(apiData.data)
 }

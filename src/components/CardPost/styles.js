@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     minWidth: '220px',
     backgroundColor: theme.colors.secundary,
     padding: 15,
-    borderRadius: 15,
+    borderRadius: 5,
     marginBottom: "20px"
   },
 
