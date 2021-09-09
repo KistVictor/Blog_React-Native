@@ -4,7 +4,7 @@ import React from 'react';
 import { styles } from './styles';
 import { Text, View, Button } from 'react-native';
 
-export default function CardPost({title, body, id, userId, removePostCard}) {
+export default function CardPost({title, content, id, userId, removePostCard}) {
 
   return (
     <View style={styles.container} >
@@ -13,7 +13,7 @@ export default function CardPost({title, body, id, userId, removePostCard}) {
         <Text style={styles.specifyText} >by {userId}</Text>
         <Text style={styles.specifyText} >12/09/21</Text>
       </View>
-      <Text style={styles.body} >{body}</Text>
+      <Text style={styles.content} >{content}</Text>
       <Button
         title="Excluir post"
         onPress={() => removePostCard(id)}

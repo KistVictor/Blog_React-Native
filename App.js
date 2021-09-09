@@ -5,12 +5,10 @@ import 'react-native-gesture-handler';
 
 import Home from './src/screens/Home'
 import PostEditor from './src/screens/PostEditor'
-import storageApiData from './src/services/storageApiData'
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
-  storageApiData()
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">

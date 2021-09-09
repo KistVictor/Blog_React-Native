@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  body: {
+  content: {
     color: theme.colors.body,
     fontSize: 16,
   },

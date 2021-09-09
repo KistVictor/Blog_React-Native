@@ -1,14 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { Button } from 'react-native';
 
 import Background from '../../components/Background';
 import CardPost from '../../components/CardPost';
 import getData from '../../services/getData'
+import storageApiData from '../../services/storageApiData'
 
 export default function Home() {
   const [data, setData] = useState([])
 
-  /*function removePostCard(id) {
+  function removePostCard(id) {
     const posts = data
     const post = posts.filter(post => post.id === id)
     console.log(post)
@@ -16,20 +18,21 @@ export default function Home() {
       console.log(post)
       posts.splice(post, 1)
       console.log(posts)
+      setData(posts)
     }
-  }*/
+  }
 
-  function generateCardPost() {
-    getData()
-      .then(apiData => apiData.map(element => <CardPost key={element.id} title={element.title} body={element.body} id={element.id} userId={element.userId} />))
-      .then(apiData => console.log(apiData))
-    //getData().then(apiData => setData(apiData))
+  async function generateCardPost() {
+    storageApiData()
+    const apiData = await getData()
+    setData(apiData)
   }
 
   return (
     <Background>
       <StatusBar style="auto" />
-      {generateCardPost()}
+      {data.map((post) => <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} />)}
+      <Button title="Trazer dados api" onPress={generateCardPost} />
     </Background>
   );
 }
