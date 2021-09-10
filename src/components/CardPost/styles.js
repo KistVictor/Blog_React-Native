@@ -16,15 +16,18 @@ export const styles = StyleSheet.create({
     color: theme.colors.heading,
     fontSize: 20,
     fontWeight: 'bold',
+    marginBottom: "10px"
   },
 
   content: {
     color: theme.colors.body,
     fontSize: 16,
+    marginBottom: "10px"
   },
 
   specify: {
     flexDirection: 'row',
+    marginBottom: "5px"
   },
 
   specifyText: {

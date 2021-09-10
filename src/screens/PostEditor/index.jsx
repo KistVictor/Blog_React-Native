@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Button, Text, TextInput, View } from 'react-native';
+import { Button, Text, TextInput, View, Keyboard, Alert } from 'react-native';
 
 import Background from '../../components/Background';
 import { styles } from './styles';
 
 import storagePost from '../../services/storagePost'
 
-export default function PostEditor() {
+export default function PostEditor({navigation}) {
   const [title, onChangeTitle] = useState('');
   const [content, onChangeContent] = useState('');
 
   function postRegister() {
     const post = {
       title: title,
-      content: content,
+      body: content,
       id: 0,
       userId: 0,
     }
     storagePost(post)
+    Keyboard.dismiss()
+    Alert.alert("Sucesso", "Post salvo com sucesso")
+    navigation.navigate('Home')
   }
 
   return (

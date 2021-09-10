@@ -4,28 +4,28 @@ import storageData from './storageData';
 function getPostId(apiData) {
   let biggerId = 0
   for (let i = 0; i < apiData.length; i++) {
-    biggerId = apiData[i].id
+    if (apiData[i].id >= biggerId) {
+      biggerId = apiData[i].id
+    }
   }
-  return biggerId
+  return biggerId + 1
 }
 
 function getUserId(apiData) {
   let biggerId = 0
   for (let i = 0; i < apiData.length; i++) {
-    biggerId = apiData[i].userId
+    if (apiData[i].id >= biggerId) {
+      biggerId = apiData[i].userId
+    }
   }
-  return biggerId
+  return biggerId + 1
 }
 
 export default async function storagePost(post) {
   const apiData = await getData()
-  const id = getPostId(apiData)
-  const userId = getUserId(apiData)
-  post.id = id + 1
-  post.userId = userId + 1
-  apiData.push(post)
-  console.log(post)
-  console.log(apiData)
+  post.id = getPostId(apiData)
+  post.userId = getUserId(apiData)
+  apiData.unshift(post)
 
   storageData(apiData)
 }

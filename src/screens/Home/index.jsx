@@ -1,28 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Button, View } from 'react-native';
 
+import { styles } from './styles';
 import Background from '../../components/Background';
 import CardPost from '../../components/CardPost';
 import getData from '../../services/getData'
-import { styles } from './styles';
+import storagaData from '../../services/storageData';
 
 export default function Home() {
   const [data, setData] = useState([])
 
+  useEffect (() => {refreshPostCard()}, [])
+
   function removePostCard(id) {
     const posts = data
     const post = posts.filter(post => post.id === id)
-    console.log(post)
     if (post[0].id === id) {
-      console.log(post[0])
       posts.splice(posts.indexOf(post[0]), 1)
-      console.log(posts)
-      setData(posts)
+      storagaData(posts)
+      refreshPostCard()
     }
   }
 
-  async function generateCardPost() {
+  async function refreshPostCard() {
     const apiData = await getData()
     setData(apiData)
   }
@@ -31,10 +32,11 @@ export default function Home() {
     <Background>
       <StatusBar style="auto" />
       <View style={styles.buttonContainer} >
-        <Button title="Atualizar" onPress={generateCardPost} />
-        <Button title="Trazer dados api" onPress={generateCardPost} />
+        <Button title="Atualizar" onPress={refreshPostCard} />
       </View >
-      {data.map((post) => <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} />)}
+      {data.map((post) => 
+        <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} />)
+      }
     </Background>
   );
 }

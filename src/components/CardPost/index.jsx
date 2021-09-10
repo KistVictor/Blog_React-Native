@@ -11,7 +11,6 @@ export default function CardPost({title, content, id, userId, removePostCard}) {
       <Text style={styles.title} >{title}</Text>
       <View style={styles.specify} >
         <Text style={styles.specifyText} >by {userId}</Text>
-        <Text style={styles.specifyText} >12/09/21</Text>
       </View>
       <Text style={styles.content} >{content}</Text>
       <Button
