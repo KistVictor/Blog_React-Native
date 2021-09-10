@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Button, View } from 'react-native';
+import React, { useState, useEffect } from 'react'
+import { StatusBar } from 'expo-status-bar'
+import { Button, View } from 'react-native'
 
-import { styles } from './styles';
-import Background from '../../components/Background';
-import CardPost from '../../components/CardPost';
+import { styles } from './styles'
+import Background from '../../components/Background'
+import CardPost from '../../components/CardPost'
+
 import getData from '../../services/getData'
-import storagaData from '../../services/storageData';
+import storagaData from '../../services/storageData'
 
-export default function Home() {
+export default function Home({navigation}) {
   const [data, setData] = useState([])
 
   useEffect (() => {refreshPostCard()}, [])
@@ -24,8 +25,8 @@ export default function Home() {
   }
 
   async function refreshPostCard() {
-    const apiData = await getData()
-    setData(apiData)
+    const asyncStorageData = await getData()
+    setData(asyncStorageData)
   }
 
   return (
@@ -35,7 +36,7 @@ export default function Home() {
         <Button title="Atualizar" onPress={refreshPostCard} />
       </View >
       {data.map((post) => 
-        <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} />)
+        <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} navigation={navigation} />)
       }
     </Background>
   );
