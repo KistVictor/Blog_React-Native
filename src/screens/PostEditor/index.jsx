@@ -11,7 +11,6 @@ import getData from '../../services/getData'
 
 export default function PostEditor({ route, navigation }) {
   const { id } = route.params;
-  const [data, setData] = useState([])
   const [title, onChangeTitle] = useState('');
   const [content, onChangeContent] = useState('');
 
@@ -26,7 +25,6 @@ export default function PostEditor({ route, navigation }) {
 
   async function pushPostCard() {
     let asyncStorageData = await getData()
-    setData(asyncStorageData)
     const post = findPost(asyncStorageData)
     if (post.id === id) {
       onChangeTitle(post.title)
@@ -36,7 +34,6 @@ export default function PostEditor({ route, navigation }) {
 
   async function refreshPostCard() {
     let asyncStorageData = await getData()
-    setData(asyncStorageData)
     let post = findPost(asyncStorageData)
     if (post.id === id) {
       asyncStorageData.splice(asyncStorageData.indexOf(post), 1)

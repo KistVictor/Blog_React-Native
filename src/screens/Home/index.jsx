@@ -36,8 +36,8 @@ export default function Home({navigation}) {
         <Button title="Atualizar" onPress={refreshPostCard} />
       </View >
       {data.map((post) => 
-        <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} navigation={navigation} />)
-      }
+        <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} navigation={navigation} />
+      )}
     </Background>
   );
 }

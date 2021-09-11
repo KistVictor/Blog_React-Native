@@ -25,12 +25,13 @@ export const styles = StyleSheet.create({
     marginBottom: "10px"
   },
 
-  specify: {
+  buttonContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-around',
     marginBottom: "5px"
   },
 
-  specifyText: {
+  text: {
     color: theme.colors.body,
     fontSize: 12,
     marginRight: '10px'

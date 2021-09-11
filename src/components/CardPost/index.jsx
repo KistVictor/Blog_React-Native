@@ -9,11 +9,9 @@ export default function CardPost({ title, content, id, userId, removePostCard, n
   return (
     <View style={styles.container} >
       <Text style={styles.title} >{title}</Text>
-      <View style={styles.specify} >
-        <Text style={styles.specifyText} >by {userId}</Text>
-      </View>
+      <Text style={styles.text} >by {userId}</Text>
       <Text style={styles.content} >{content}</Text>
-      <View style={styles.specify} >
+      <View style={styles.buttonContainer} >
         <Button
           title="Excluir post"
           onPress={() => removePostCard(id)}
