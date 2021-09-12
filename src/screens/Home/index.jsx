@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Button, View, TextInput } from 'react-native'
+import { Button, View, TextInput, ScrollView } from 'react-native'
 
 import { styles } from './styles'
 import Background from '../../components/Background'
@@ -40,9 +40,11 @@ export default function Home({navigation, data, setData, refreshPostCard, remove
         />
         <Button title="Buscar" onPress={searchPostCard} color="#373E47" />
       </View>
+      <ScrollView>
       {data.map((post) => 
         <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} navigation={navigation} />
       )}
+      </ScrollView>
     </Background>
   );
 }

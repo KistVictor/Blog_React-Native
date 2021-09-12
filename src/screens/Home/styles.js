@@ -5,7 +5,8 @@ import { theme } from "../../styles/theme"
 export const styles = StyleSheet.create ({
 
     container: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 10,
     },
 
     input: {
