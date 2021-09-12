@@ -69,7 +69,7 @@ export default function App() {
           {(props) => <PostMaker {...props} refreshPostCard={refreshPostCard} />}
         </Drawer.Screen>
 
-        <Drawer.Screen name="Editor de post" gestureEnabled="false" >
+        <Drawer.Screen  screenOptions={{headerShown: false}} name={`Editor de post\n(chamada a partir do post)`} >
           {(props) => <PostEditor {...props} refreshPostCard={refreshPostCard} />}
         </Drawer.Screen>
 
