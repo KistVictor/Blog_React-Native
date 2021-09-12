@@ -7,7 +7,6 @@ import Home from './src/screens/Home'
 import PostMaker from './src/screens/PostMaker'
 import PostEditor from './src/screens/PostEditor'
 import BuscaId from './src/screens/BuscaId'
-import Busca from './src/screens/Busca'
 
 import storageApiData from './src/services/storageApiData'
 import getData from './src/services/getData'
@@ -24,7 +23,6 @@ export default function App() {
 
   async function refreshPostCard() {
     const asyncStorageData = await getData()
-    console.log("chamado")
     setData(asyncStorageData)
   }
 
@@ -33,7 +31,7 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Home">
 
         <Drawer.Screen name="Home" >
-          {(props) => <Home {...props} data={data} refreshPostCard={refreshPostCard} />}
+          {(props) => <Home {...props} data={data} setData={setData} refreshPostCard={refreshPostCard} />}
         </Drawer.Screen>
 
         <Drawer.Screen name="Criar post" >
@@ -46,10 +44,6 @@ export default function App() {
 
         <Drawer.Screen name="Request ID" >
           {(props) => <BuscaId {...props} refreshPostCard={refreshPostCard} />}
-        </Drawer.Screen>
-
-        <Drawer.Screen name="Busca" >
-          {(props) => <Busca {...props} refreshPostCard={refreshPostCard} />}
         </Drawer.Screen>
 
       </Drawer.Navigator>

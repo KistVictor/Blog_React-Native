@@ -4,11 +4,18 @@ import { theme } from "../../styles/theme"
 
 export const styles = StyleSheet.create ({
 
-    buttonContainer: {
+    container: {
+        flexDirection: 'row'
+    },
+
+    input: {
         maxWidth: '420px',
         minWidth: '220px',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: '20px'
-    }
+        height: 35,
+        borderRadius: 3,
+        paddingLeft: 10,
+        color: theme.colors.background,
+        backgroundColor: '#ffffff'
+    },
+
 })
