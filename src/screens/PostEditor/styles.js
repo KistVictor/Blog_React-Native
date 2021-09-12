@@ -5,12 +5,12 @@ import { theme } from "../../styles/theme"
 export const styles = StyleSheet.create ({
 
     container: {
-      maxWidth: '420px',
-      minWidth: '320px',
+      maxWidth: 420,
+      minWidth: 320,
       backgroundColor: theme.colors.secundary,
       padding: 15,
       borderRadius: 5,
-      marginTop: "20px",
+      marginTop: 20,
       borderWidth: 1,
       borderColor: theme.colors.terciary,
     },
@@ -21,8 +21,8 @@ export const styles = StyleSheet.create ({
     },
 
     input: {
-        maxWidth: '420px',
-        minWidth: '220px',
+        maxWidth: 420,
+        minWidth: 220,
         height: 35,
         marginBottom: 12,
         borderRadius: 3,

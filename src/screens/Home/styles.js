@@ -9,8 +9,8 @@ export const styles = StyleSheet.create ({
     },
 
     input: {
-        maxWidth: '420px',
-        minWidth: '220px',
+        maxWidth: 420,
+        minWidth: 220,
         height: 35,
         borderRadius: 3,
         paddingLeft: 10,

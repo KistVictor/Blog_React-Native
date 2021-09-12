@@ -73,8 +73,8 @@ export default function App() {
           {(props) => <PostEditor {...props} refreshPostCard={refreshPostCard} />}
         </Drawer.Screen>
 
-        <Drawer.Screen name="Request ID" >
-          {(props) => <SearchId {...props} refreshPostCard={refreshPostCard} removePostCard={removePostCard} />}
+        <Drawer.Screen name="Search ID" >
+          {(props) => <SearchId {...props} />}
         </Drawer.Screen>
 
       </Drawer.Navigator>

@@ -4,12 +4,12 @@ import { theme } from '../../styles/theme'
 export const styles = StyleSheet.create({
 
   container: {
-    maxWidth: '420px',
-    minWidth: '320px',
+    maxWidth: 420,
+    minWidth: 320,
     backgroundColor: theme.colors.secundary,
     padding: 15,
     borderRadius: 5,
-    marginTop: "20px",
+    marginTop: 20,
     borderWidth: 1,
     borderColor: theme.colors.terciary,
   },
@@ -18,25 +18,25 @@ export const styles = StyleSheet.create({
     color: theme.colors.heading,
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: "10px"
+    marginBottom: 10
   },
 
   content: {
     color: theme.colors.body,
     fontSize: 16,
-    marginBottom: "10px"
+    marginBottom: 10
   },
 
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginBottom: "5px"
+    marginBottom: 5
   },
 
   text: {
     color: theme.colors.body,
     fontSize: 12,
-    marginRight: '10px'
+    marginRight: 10
   }
 
 })

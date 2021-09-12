@@ -12,21 +12,21 @@ export default function CardPost({ title, content, id, userId, removePostCard, n
       <Text style={styles.text} >by {userId}</Text>
       <Text style={styles.content} >{content}</Text>
       <View style={styles.buttonContainer} >
-        {!removePostCard ? "" :
+        {!navigation ? null :
+          <Button
+            title="Editar post"
+            onPress={() => navigation.navigate('Editor de post', {
+              id: id
+            })}
+            color="#373E47"
+          />
+        }
+        {!removePostCard ? null :
           <Button
             title="Excluir post"
             onPress={() => removePostCard(id)}
             color="#E51C44"
           />
-        }
-        {!navigation ? "" :
-        <Button
-          title="Editar post"
-          onPress={() => navigation.navigate('Editor de post', {
-            id: id
-          })}
-          color="#373E47"
-        />
         }
       </View>
     </View>

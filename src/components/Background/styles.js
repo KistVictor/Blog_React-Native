@@ -4,7 +4,7 @@ import { theme } from '../../styles/theme'
 export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    padding: '20px',
+    padding: 20,
     backgroundColor: theme.colors.background
   }
 })
