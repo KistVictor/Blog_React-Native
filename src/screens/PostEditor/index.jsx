@@ -16,7 +16,6 @@ export default function PostEditor({ route, navigation, refreshPostCard }) {
 
   useEffect(() => {
     pushPostCard()
-    console.log(id)
   }, [id])
 
   function findPost(asyncStorageData, key) {
@@ -27,7 +26,6 @@ export default function PostEditor({ route, navigation, refreshPostCard }) {
   async function pushPostCard() {
     let asyncStorageData = await getData()
     const post = findPost(asyncStorageData, id)
-    console.log(id)
     if (post.id === id) {
       onChangeTitle(post.title)
       onChangeContent(post.body)
@@ -80,6 +78,7 @@ export default function PostEditor({ route, navigation, refreshPostCard }) {
         <Button
           title="Salvar post"
           onPress={changePostCard}
+          color="#373E47"
         />
       </View>
 

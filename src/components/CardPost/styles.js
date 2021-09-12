@@ -9,7 +9,9 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.secundary,
     padding: 15,
     borderRadius: 5,
-    marginTop: "20px"
+    marginTop: "20px",
+    borderWidth: 1,
+    borderColor: theme.colors.terciary,
   },
 
   title: {

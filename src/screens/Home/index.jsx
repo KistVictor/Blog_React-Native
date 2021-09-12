@@ -6,21 +6,10 @@ import { styles } from './styles'
 import Background from '../../components/Background'
 import CardPost from '../../components/CardPost'
 
-import storagaData from '../../services/storageData'
 import getData from '../../services/getData'
 
-export default function Home({navigation, data, setData, refreshPostCard}) {
+export default function Home({navigation, data, setData, refreshPostCard, removePostCard}) {
   const [search, setSearch] = useState('')
-  
-  async function removePostCard(id) {
-    const posts = await getData()
-    const post = posts.filter(post => post.id === id)
-    if (post[0].id === id) {
-      posts.splice(posts.indexOf(post[0]), 1)
-      storagaData(posts)
-      refreshPostCard()
-    }
-  }
 
   async function searchPostCard() {
     const asyncStorageData = await getData()
@@ -36,7 +25,6 @@ export default function Home({navigation, data, setData, refreshPostCard}) {
     } 
     else {
       setData(asyncStorageData)
-      console.log(asyncStorageData)
     }
   }
 
@@ -50,7 +38,7 @@ export default function Home({navigation, data, setData, refreshPostCard}) {
           style={styles.input}
           placeholder="Título"
         />
-        <Button title="Buscar" onPress={searchPostCard} />
+        <Button title="Buscar" onPress={searchPostCard} color="#373E47" />
       </View>
       {data.map((post) => 
         <CardPost key={post.id} title={post.title} content={post.body} id={post.id} userId={post.userId} removePostCard={removePostCard} navigation={navigation} />

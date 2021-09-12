@@ -5,19 +5,19 @@ import { theme } from "../../styles/theme"
 export const styles = StyleSheet.create ({
 
     container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        maxWidth: '420px',
-        minWidth: '220px',
-        backgroundColor: theme.colors.terciary,
-        padding: 15,
-        borderRadius: 5,
-        marginBottom: "20px"
+      maxWidth: '420px',
+      minWidth: '320px',
+      backgroundColor: theme.colors.secundary,
+      padding: 15,
+      borderRadius: 5,
+      marginTop: "20px",
+      borderWidth: 1,
+      borderColor: theme.colors.terciary,
     },
 
     text: {
         marginBottom: 12,
-        color: theme.colors.background,
+        color: theme.colors.heading,
     },
 
     input: {

@@ -7,7 +7,7 @@ import { styles } from './styles';
 
 import storagePost from '../../services/storagePost'
 
-export default function PostEditor({ navigation, refreshPostCard }) {
+export default function PostMaker({ navigation, refreshPostCard }) {
   const [title, onChangeTitle] = useState('');
   const [content, onChangeContent] = useState('');
 
@@ -47,6 +47,7 @@ export default function PostEditor({ navigation, refreshPostCard }) {
         <Button
           onPress={postRegister}
           title="Salvar post"
+          color="#373E47"
         />
       </View>
 

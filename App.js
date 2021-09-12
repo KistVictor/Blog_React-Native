@@ -6,10 +6,11 @@ import 'react-native-gesture-handler';
 import Home from './src/screens/Home'
 import PostMaker from './src/screens/PostMaker'
 import PostEditor from './src/screens/PostEditor'
-import BuscaId from './src/screens/BuscaId'
+import SearchId from './src/screens/SearchId'
 
 import storageApiData from './src/services/storageApiData'
 import getData from './src/services/getData'
+import storagaData from './src/services/storageData'
 
 const Drawer = createDrawerNavigator();
 
@@ -26,12 +27,42 @@ export default function App() {
     setData(asyncStorageData)
   }
 
+  async function removePostCard(id) {
+    const posts = await getData()
+    const post = posts.filter(post => post.id === id)
+    if (post[0].id === id) {
+      posts.splice(posts.indexOf(post[0]), 1)
+      storagaData(posts)
+      refreshPostCard()
+    }
+  }
+
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          drawerStyle: {
+            backgroundColor: '#2D333B'
+          },
+          drawerLabelStyle: {
+            color: '#ADBAC7'
+          },
+          sceneContainerStyle: {
+            backgroundColor: '#1C2128'
+          },
+          headerStyle: {
+            backgroundColor: '#2D333B',
+          },
+          headerTintColor: '#ADBAC7',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}
+      >
 
         <Drawer.Screen name="Home" >
-          {(props) => <Home {...props} data={data} setData={setData} refreshPostCard={refreshPostCard} />}
+          {(props) => <Home {...props} data={data} setData={setData} refreshPostCard={refreshPostCard} removePostCard={removePostCard} />}
         </Drawer.Screen>
 
         <Drawer.Screen name="Criar post" >
@@ -43,7 +74,7 @@ export default function App() {
         </Drawer.Screen>
 
         <Drawer.Screen name="Request ID" >
-          {(props) => <BuscaId {...props} refreshPostCard={refreshPostCard} />}
+          {(props) => <SearchId {...props} refreshPostCard={refreshPostCard} removePostCard={removePostCard} />}
         </Drawer.Screen>
 
       </Drawer.Navigator>
