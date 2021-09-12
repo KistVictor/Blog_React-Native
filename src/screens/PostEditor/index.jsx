@@ -9,32 +9,34 @@ import storagePost from '../../services/storagePost'
 import storagaData from '../../services/storageData'
 import getData from '../../services/getData'
 
-export default function PostEditor({ route, navigation }) {
-  const { id } = route.params;
+export default function PostEditor({ route, navigation, refreshPostCard }) {
+  let { id } = route.params;
   const [title, onChangeTitle] = useState('');
   const [content, onChangeContent] = useState('');
 
   useEffect(() => {
     pushPostCard()
+    console.log(id)
   }, [id])
 
-  function findPost(asyncStorageData) {
-    const post = asyncStorageData.filter(post => post.id === id)
+  function findPost(asyncStorageData, key) {
+    const post = asyncStorageData.filter(post => post.id === key)
     return post[0]
   }
 
   async function pushPostCard() {
     let asyncStorageData = await getData()
-    const post = findPost(asyncStorageData)
+    const post = findPost(asyncStorageData, id)
+    console.log(id)
     if (post.id === id) {
       onChangeTitle(post.title)
       onChangeContent(post.body)
     }
   }
 
-  async function refreshPostCard() {
+  async function changePostCard() {
     let asyncStorageData = await getData()
-    let post = findPost(asyncStorageData)
+    let post = findPost(asyncStorageData, id)
     if (post.id === id) {
       asyncStorageData.splice(asyncStorageData.indexOf(post), 1)
       storagaData(asyncStorageData)
@@ -42,19 +44,20 @@ export default function PostEditor({ route, navigation }) {
     }
   }
 
-  function postRegister(post) {
+  async function postRegister(post) {
     const newPost = {
       title: title,
       body: content,
       id: post.id,
       userId: post.userId,
     }
-    storagePost(newPost)
+    await storagePost(newPost)
     Keyboard.dismiss()
     Alert.alert("Sucesso", "Post salvo com sucesso")
     navigation.navigate('Home')
     onChangeTitle('')
     onChangeContent('')
+    refreshPostCard()
   }
 
   return (
@@ -76,7 +79,7 @@ export default function PostEditor({ route, navigation }) {
         />
         <Button
           title="Salvar post"
-          onPress={refreshPostCard}
+          onPress={changePostCard}
         />
       </View>
 

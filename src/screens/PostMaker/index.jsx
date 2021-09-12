@@ -7,23 +7,24 @@ import { styles } from './styles';
 
 import storagePost from '../../services/storagePost'
 
-export default function PostEditor({navigation}) {
+export default function PostEditor({ navigation, refreshPostCard }) {
   const [title, onChangeTitle] = useState('');
   const [content, onChangeContent] = useState('');
 
-  function postRegister() {
+  async function postRegister() {
     const post = {
       title: title,
       body: content,
       id: 0,
       userId: 0,
     }
-    storagePost(post)
+    await storagePost(post)
     Keyboard.dismiss()
     Alert.alert("Sucesso", "Post salvo com sucesso")
     navigation.navigate('Home')
     onChangeTitle('')
     onChangeContent('')
+    refreshPostCard()
   }
 
   return (

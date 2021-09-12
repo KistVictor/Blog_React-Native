@@ -5,11 +5,11 @@ export const styles = StyleSheet.create({
 
   container: {
     maxWidth: '420px',
-    minWidth: '220px',
+    minWidth: '320px',
     backgroundColor: theme.colors.secundary,
     padding: 15,
     borderRadius: 5,
-    marginBottom: "20px"
+    marginTop: "20px"
   },
 
   title: {

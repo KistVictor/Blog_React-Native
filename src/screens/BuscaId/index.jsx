@@ -10,7 +10,6 @@ import getApiPostWithID from '../../services/getApiPostWithID'
 export default function Home({navigation}) {
   const [id, setID] = useState(0);
   const [data, setData] = useState('')
-  console.log(data)
 
   async function refreshPostCard() {
     const asyncStorageData = await getApiPostWithID(id.replace(/^0+/, ''))
