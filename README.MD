@@ -2,7 +2,7 @@
 
 <h2>Projeto</h2>
 <p>Funcionalidades de criação de posts, edição e exclusão.</p>
-<p>Post <a src="https://jsonplaceholder.typicode.com/posts">deste endpoint</a> já cadastrados</p>
+<p>Post <a href="https://jsonplaceholder.typicode.com/posts">deste endpoint</a> já cadastrados</p>
 <p>É possível buscar posts por meio do título ou por ID</p>
 <p>Os dados estão sendo salvos em local storage</p>
 
