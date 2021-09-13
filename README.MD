@@ -1,4 +1,4 @@
-<img align="right" width="240" height="480" alt="home do blog" src="https://github.com/KistVictor/Blog_React-Native/blob/main/src/doc/home.jpg" ></img><h1>Blog em React Native</h1>
+<img align="right" width="240" height="480" alt="home do blog" src="https://github.com/KistVictor/Blog_React-Native/blob/main/src/doc/homeGif.gif" ></img><h1>Blog em React Native</h1>
 
 <h2>Projeto</h2>
 <p>Funcionalidades de criação de posts, edição e exclusão.</p>
