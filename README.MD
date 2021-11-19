@@ -11,4 +11,4 @@
 <code>npm install --global yarn</code><br>
 <code>yarn install</code><br>
 <code>expo start</code><br>
-<p>Digite W para abrir na web ou baixe o app expo abri abrir no celular</p>
+<p>Digite W para abrir na web ou baixe o app expo para abrir no celular</p>
